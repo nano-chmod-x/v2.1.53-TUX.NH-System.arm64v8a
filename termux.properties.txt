@@ -1,0 +1,1183 @@
+### This is a `.properties` [https://en.wikipedia.org/wiki/.properties] file
+### for termux app properties and is loaded with the `java.util.Properties.load()`
+### [https://developer.android.com/reference/java/util/Properties#load(java.io.Reader)]
+### call by the termux app and must be formatted as per its spec.
+### To make changes to a property value, uncomment the property line by removing
+### any hash `#` characters at the start of the line.
+### After making required changes, save the file and run `termux-reload-settings`
+### in the terminal for changes to take effect. Some properties require app
+### process to be restarted to be updated which can be done by force stopping
+### the app from Android app settings.
+### All information here can also be found on the
+### wiki: https://wiki.termux.com/wiki/Terminal_Settings
+
+###############
+# General
+###############
+
+### Allow external applications to execute arbitrary commands within Termux.
+### This potentially could be a security issue, so option is disabled by
+### default. Uncomment to enable.
+# allow-external-apps = true
+
+### Default working directory that will be used when launching the app.
+# default-working-directory = /data/data/com.termux/files/home
+
+### Uncomment to disable toasts shown on terminal session change.
+# disable-terminal-session-change-toast = true
+
+### Uncomment to not show soft keyboard on application start.
+# hide-soft-keyboard-on-startup = true
+
+### Uncomment to let keyboard toggle button to enable or disable software
+### keyboard instead of showing/hiding it.
+# soft-keyboard-toggle-behaviour = enable/disable
+
+### Adjust terminal scrollback buffer. Max is 50000. May have negative
+### impact on performance.
+# terminal-transcript-rows = 2000
+
+### Uncomment to use volume keys for adjusting volume and not for the
+### extra keys functionality.
+# volume-keys = volume
+
+###############
+# Fullscreen mode
+###############
+
+### Uncomment to let Termux start in full screen mode.
+# fullscreen = true
+
+### Uncomment to attempt workaround layout issues when running in
+### full screen mode.
+# use-fullscreen-workaround = true
+
+###############
+# Cursor
+###############
+
+### Cursor blink rate. Values 0, 100 - 2000.
+# terminal-cursor-blink-rate = 0
+
+### Cursor style: block, bar, underline.
+# terminal-cursor-style = block
+
+###############
+# Extra keys
+###############
+
+### Settings for choosing which set of symbols to use for illustrating keys.
+### Choose between default, arrows-only, arrows-all, all and none
+# extra-keys-style = default
+
+### Force capitalize all text in extra keys row button labels.
+# extra-keys-text-all-caps = true
+
+### Default extra-key configuration
+# extra-keys = [[ESC, TAB, CTRL, ALT, {key: '-', popup: '|'}, DOWN, UP]]
+
+### Two rows with more keys
+# extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'], \
+#               ['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]
+
+### Configuration with additional popup keys (swipe up from an extra key)
+# extra-keys = [[ \
+#   {key: ESC, popup: {macro: "CTRL f d", display: "tmux exit"}}, \
+#   {key: CTRL, popup: {macro: "CTRL f BKSP", display: "tmux ←"}}, \
+#   {key: ALT, popup: {macro: "CTRL f TAB", display: "tmux →"}}, \
+#   {key: TAB, popup: {macro: "ALT a", display: A-a}}, \
+#   {key: LEFT, popup: HOME}, \
+#   {key: DOWN, popup: PGDN}, \
+#   {key: UP, popup: PGUP}, \
+#   {key: RIGHT, popup: END}, \
+#   {macro: "ALT j", display: A-j, popup: {macro: "ALT g", display: A-g}}, \
+#   {key: KEYBOARD, popup: {macro: "CTRL d", display: exit}} \
+# ]]
+
+### Another configuration with advanced popup key usage designed for more
+### specific use-cases. In this case, it is designed for working with Vim-like
+### editors for faster navigation
+#extra-keys = [ \
+#  [ \
+#    { key: ESC, popup: { macro: ":q\n", display: "QuickExit" } }, \
+#    { key: '/', popup: '\\\\' }, \
+#    { key: '-', popup: '_' }, \
+#    { key: HOME, popup: { macro: "CTRL HOME", display: "Top" } }, \
+#    { key: UP, popup: { macro: "CTRL UP", display: "UP" } }, \
+#    { key: END, popup: { macro: "CTRL END", display: "End" } }, \
+#    { key: ":", popup: ";" }, \
+#    { key: "(", popup: "{" } \
+#  ], \
+#  [ \
+#    { key: TAB, popup: { macro: ":wq\n", display: "Write And Exit" } }, \
+#    { key: CTRL, popup: { macro: ":w\n", display: "Write" } }, \
+#    ALT, \
+#    { key: LEFT, popup: { macro: "CTRL LEFT", display: "Left" } }, \
+#    { key: DOWN, popup: { macro: "CTRL DOWN", display: "Bottom" } }, \
+#    { key: RIGHT, popup: { macro: "CTRL RIGHT", display: "Right" } }, \
+#    { key: "#", popup: "$" }, \
+#    { key: ")", popup: "}" } \
+#  ] \
+#]
+
+###############
+# Colors/themes
+###############
+
+### Force black colors for drawer and dialogs
+# use-black-ui = true
+
+###############
+# HW keyboard shortcuts
+###############
+
+### Disable hardware keyboard shortcuts.
+# disable-hardware-keyboard-shortcuts = true
+
+### Open a new terminal with ctrl + t (volume down + t)
+# shortcut.create-session = ctrl + t
+
+### Go one session down with (for example) ctrl + 2
+# shortcut.next-session = ctrl + 2
+
+### Go one session up with (for example) ctrl + 1
+# shortcut.previous-session = ctrl + 1
+
+### Rename a session with (for example) ctrl + n
+# shortcut.rename-session = ctrl + n
+
+###############
+# Bell key
+###############
+
+### Vibrate device (default).
+# bell-character = vibrate
+
+### Beep with a sound.
+# bell-character = beep
+
+### Ignore bell character.
+# bell-character = ignore
+
+###############
+# Back key
+###############
+
+### Send the Escape key.
+# back-key=escape
+
+### Hide keyboard or leave app (default).
+# back-key=back
+
+###############
+# Keyboard issue workarounds
+###############
+
+### Letters might not appear until enter is pressed on Samsung devices
+# enforce-char-based-input = true
+
+### ctrl+space (for marking text in emacs) does not work on some devices
+# ctrl-space-workaround = true
+
+###############
+# Terminal Margin adjustments
+###############
+
+### Horizontal (left/right) Margin
+# terminal-margin-horizontal=3
+
+### Vertical (top/bottom) Margin
+# terminal-margin-vertical=0
+
+# shellcheck shell=bash
+# shellcheck disable=SC2034
+
+# XXX: This file is sourced by repology-updater script
+# So avoid doing things like executing commands except of those available in
+# coreutils and are clearly not a default part of most Linux installations,
+# or sourcing any other script in our build directories.
+
+if [ -z "${BASH_VERSION:-}" ]; then
+    echo "The 'properties.sh' script must be run from a 'bash' shell."; return 64 2>/dev/null|| exit 64 # EX__USAGE
+fi
+
+
+
+###
+# Variables for validation of Termux properties variables.
+# Validation is done to ensure packages are not compiled for invalid
+# values that are not supported, and values are as per Termux file
+# path limits.
+#
+# Additionally, the Termux packages build system is an unsafe mess of
+# unquoted variables in shell scripts, and so validation is necessary
+# for important variables, especially specific path variables against
+# `TERMUX_REGEX__SAFE_*_PATH` regexes to reduce any potential damage.
+#
+# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+###
+
+##
+# The map of variable names to their space separated list of validator
+# actions to perform.
+#
+# Following are the supported validator actions.
+# - `allow_unset_value`: Allow variable to be defined but unset, and
+#    skip other validations.
+# - `app_package_name`: Variable must match `TERMUX_REGEX__APP_PACKAGE_NAME`.
+# - `invalid_termux_rootfs_paths`: Path variable must not match
+#   `TERMUX_REGEX__INVALID_TERMUX_ROOTFS_PATHS`.
+# - `invalid_termux_home_paths`: Path variable must not match
+#   `TERMUX_REGEX__INVALID_TERMUX_HOME_PATHS`.
+# - `invalid_termux_prefix_paths`: Path variable must not match
+#   `TERMUX_REGEX__INVALID_TERMUX_PREFIX_PATHS`.
+# - `path_equal_to_or_under_termux_rootfs`: Path variable must be equal
+#   to or be under `TERMUX__ROOTFS`.
+# - `path_under_termux_rootfs`:Path variable must be under `TERMUX__ROOTFS`.
+# - `safe_absolute_path`: Path variable must match
+#   `TERMUX_REGEX__SAFE_ABSOLUTE_PATH` and must not match
+#   `TERMUX_REGEX__SINGLE_OR_DOUBLE_DOT_CONTAINING_PATH`.
+# - `safe_relative_path`: Path variable must match
+#   `TERMUX_REGEX__SAFE_RELATIVE_PATH` and must not match
+#   `TERMUX_REGEX__SINGLE_OR_DOUBLE_DOT_CONTAINING_PATH`.
+# - `safe_rootfs_or_absolute_path`: Path variable must match
+#   `TERMUX_REGEX__SAFE_ROOTFS_OR_ABSOLUTE_PATH` and must not match
+#   `TERMUX_REGEX__SINGLE_OR_DOUBLE_DOT_CONTAINING_PATH`.
+# - `apps_api_socket__server_parent_dir`: Path variable must have max
+#    length `<= TERMUX__APPS_API_SOCKET__SERVER_PARENT_DIR___MAX_LEN`
+#    including the null `\0` terminator.
+# - `unix_path_max`: Path variable must have max length `<= TERMUX__UNIX_PATH_MAX`
+#    including the null `\0` terminator.
+# - `unsigned_int`: Variable must match `TERMUX_REGEX__UNSIGNED_INT`.
+##
+unset __TERMUX_BUILD_PROPS__VARIABLES_VALIDATOR_ACTIONS_MAP; declare -A __TERMUX_BUILD_PROPS__VARIABLES_VALIDATOR_ACTIONS_MAP=()
+
+##
+# The list of variable names added to `__TERMUX_BUILD_PROPS__VARIABLES_VALIDATOR_ACTIONS_MAP`
+# that maintains insertion order.
+##
+unset __TERMUX_BUILD_PROPS__VARIABLES_VALIDATOR_ACTIONS_VARIABLE_NAMES; declare -a __TERMUX_BUILD_PROPS__VARIABLES_VALIDATOR_ACTIONS_VARIABLE_NAMES=()
+
+##
+# Whether to validate max lengths of Termux paths. Set to `false` to skip validation.
+##
+__TERMUX_BUILD_PROPS__VALIDATE_PATHS_MAX_LEN="true"
+
+##
+# Whether to validate `usr` merge format for `TERMUX__PREFIX`. Set to `false` to skip validation.
+# Check `TERMUX__PREFIX` variable docs for more info.
+##
+__TERMUX_BUILD_PROPS__VALIDATE_TERMUX_PREFIX_USR_MERGE_FORMAT="true"
+
+
+
+##
+# `__termux_build_props__add_variables_validator_actions` `<variable_name>` `<validator_actions>`
+##
+__termux_build_props__add_variables_validator_actions() {
+
+    if [ $# -ne 2 ]; then
+        echo "Invalid argument count '$#' to '__termux_build_props__add_variables_validator_actions'." 1>&2
+        return 1
+    fi
+
+    local variable_name="$1"
+    local validator_actions="$2"
+
+    if [[ ! "$variable_name" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]; then
+        echo "The variable_name '$variable_name' passed to '__termux_build_props__add_variables_validator_actions' is not a valid shell variable name." 1>&2
+        return 1
+    fi
+
+    if [[ " ${__TERMUX_BUILD_PROPS__VARIABLES_VALIDATOR_ACTIONS_VARIABLE_NAMES[*]} " != *" $variable_name "* ]]; then
+        __TERMUX_BUILD_PROPS__VARIABLES_VALIDATOR_ACTIONS_VARIABLE_NAMES+=("$variable_name")
+    fi
+
+    __TERMUX_BUILD_PROPS__VARIABLES_VALIDATOR_ACTIONS_MAP["$variable_name"]+="$validator_actions"
+
+}
+
+
+
+
+
+####
+# Variables for validating Termux variables.
+####
+
+##
+# Regex that matches an absolute path that starts with a `/` with at
+# least one characters under rootfs `/`. Duplicate or trailing path
+# separators `/` are not allowed.
+##
+TERMUX_REGEX__ABSOLUTE_PATH='^(/[^/]+)+$'
+
+##
+# Regex that matches a relative path that does not start with a `/`.
+# Duplicate or trailing path separators `/` are not allowed.
+##
+TERMUX_REGEX__RELATIVE_PATH='^[^/]+(/[^/]+)*$'
+
+##
+# Regex that matches (rootfs `/`) or (an absolute path that starts
+# with a `/`). Duplicate or trailing path separators `/` are not
+# allowed.
+##
+TERMUX_REGEX__ROOTFS_OR_ABSOLUTE_PATH='^((/)|((/[^/]+)+))$'
+
+
+##
+# Regex that matches a safe absolute path that starts with a `/` with
+# at least one characters under rootfs `/`. Duplicate or trailing path
+# separators `/` are not allowed. The path component characters must
+# be in the range `[a-zA-Z0-9+,.=_-]`.
+#
+# The path must also be validated against
+# `TERMUX_REGEX__SINGLE_OR_DOUBLE_DOT_CONTAINING_PATH`.
+##
+TERMUX_REGEX__SAFE_ABSOLUTE_PATH='^(/[a-zA-Z0-9+,.=_-]+)+$'
+
+##
+# Regex that matches a safe relative path that does not start with a
+# `/`. Duplicate or trailing path separators `/` are not allowed. The
+# path component characters must be in the range `[a-zA-Z0-9+,.=_-]`.
+#
+# The path must also be validated against
+# `TERMUX_REGEX__SINGLE_OR_DOUBLE_DOT_CONTAINING_PATH`.
+##
+TERMUX_REGEX__SAFE_RELATIVE_PATH='^[a-zA-Z0-9+,.=_-]+(/[a-zA-Z0-9+,.=_-]+)*$'
+
+##
+# Regex that matches (rootfs `/`) or (a safe absolute path that starts
+# with a `/`). Duplicate or trailing path separators `/` are not
+# allowed. The path component characters must be in the range
+# `[a-zA-Z0-9+,.=_-]`.
+#
+# The path must also be validated against
+# `TERMUX_REGEX__SINGLE_OR_DOUBLE_DOT_CONTAINING_PATH`.
+##
+TERMUX_REGEX__SAFE_ROOTFS_OR_ABSOLUTE_PATH='^((/)|((/[a-zA-Z0-9+,.=_-]+)+))$'
+
+
+##
+# Regex that matches a path containing single `/./` or double `/../` dot components.
+##
+TERMUX_REGEX__SINGLE_OR_DOUBLE_DOT_CONTAINING_PATH='((^\./)|(^\.\./)|(/\.$)|(/\.\.$)|(/\./)|(/\.\./))'
+
+
+##
+# Regex that matches invalid Termux rootfs paths.
+#
+# The Termux rootfs or prefix paths must not be equal to or be under
+# specific Filesystem Hierarchy Standard paths or paths used by Termux
+# docker image/host OS for its own files, as Termux packages files
+# must be kept separate from the build host. The Termux app data/prefix
+# directories are also wiped by `clean.sh` when not running on-device,
+# which wouldn't be possible if Termux and host directories are shared.
+#
+# The invalid paths list does not include the `/data` and `/mnt/expand`
+# paths under which private app data directories are assigned to
+# Android apps, or the `/data/local/tmp` directory assigned to `adb`
+# `shell` user, or the `/system` directory for the Android system.
+#
+# - https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.html
+# - https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
+##
+TERMUX_REGEX__INVALID_TERMUX_ROOTFS_PATHS='^((/bin(/.*)?)|(/boot(/.*)?)|(/dev(/.*)?)|(/etc(/.*)?)|(/home)|(/lib(/.*)?)|(/lib[^/]+(/.*)?)|(/media)|(/mnt)|(/opt)|(/proc(/.*)?)|(/root)|(/run(/.*)?)|(/sbin(/.*)?)|(/srv(/.*)?)|(/sys(/.*)?)|(/tmp(/.*)?)|(/usr)|(/usr/local)|(((/usr/)|(/usr/local/))((bin)|(games)|(include)|(lib)|(libexec)|(lib[^/]+)|(sbin)|(share)|(src)|(X11R6))(/.*)?)|(/var(/.*)?)|(/bin.usr-is-merged)|(/lib.usr-is-merged)|(/sbin.usr-is-merged)|(/.dockerinit)|(/.dockerenv))$'
+
+##
+# Regex that matches invalid Termux home paths.
+#
+# Same reasoning as `TERMUX_REGEX__INVALID_TERMUX_ROOTFS_PATHS`,
+# and invalid paths are the same as well except that `/home` is
+# allowed, and `/` and all paths under `/usr` are not allowed.
+#
+# `/home` is allowed as package data files are not packaged from there.
+##
+TERMUX_REGEX__INVALID_TERMUX_HOME_PATHS='^((/)|(/bin(/.*)?)|(/boot(/.*)?)|(/dev(/.*)?)|(/etc(/.*)?)|(/lib(/.*)?)|(/lib[^/]+(/.*)?)|(/media)|(/mnt)|(/opt)|(/proc(/.*)?)|(/root)|(/run(/.*)?)|(/sbin(/.*)?)|(/srv(/.*)?)|(/sys(/.*)?)|(/tmp(/.*)?)|(/usr(/.*)?)|(/var(/.*)?)|(/bin.usr-is-merged)|(/lib.usr-is-merged)|(/sbin.usr-is-merged)|(/.dockerinit)|(/.dockerenv))$'
+
+##
+# Regex that matches invalid Termux prefix paths.
+#
+# Same reasoning as `TERMUX_REGEX__INVALID_TERMUX_ROOTFS_PATHS`,
+# and invalid paths are the same as well except that `/` is not
+# allowed.
+##
+TERMUX_REGEX__INVALID_TERMUX_PREFIX_PATHS='^((/)|(/bin(/.*)?)|(/boot(/.*)?)|(/dev(/.*)?)|(/etc(/.*)?)|(/home)|(/lib(/.*)?)|(/lib[^/]+(/.*)?)|(/media)|(/mnt)|(/opt)|(/proc(/.*)?)|(/root)|(/run(/.*)?)|(/sbin(/.*)?)|(/srv(/.*)?)|(/sys(/.*)?)|(/tmp(/.*)?)|(/usr)|(/usr/local)|(((/usr/)|(/usr/local/))((bin)|(games)|(include)|(lib)|(libexec)|(lib[^/]+)|(sbin)|(share)|(src)|(X11R6))(/.*)?)|(/var(/.*)?)|(/bin.usr-is-merged)|(/lib.usr-is-merged)|(/sbin.usr-is-merged)|(/.dockerinit)|(/.dockerenv))$'
+
+
+##
+# Regex that matches an unsigned integer `>= 0`.
+##
+TERMUX_REGEX__UNSIGNED_INT='^[0-9]+$'
+
+
+##
+# Regex to match an android app package name.
+#
+# The package name must have at least two segments separated by a dot
+# `.`, where each segment must start with at least one character in
+# the range `[a-zA-Z]`, followed by zero or more characters in the
+# range `[a-zA-Z0-9_]`. The package name length must also be
+# `<= 255` (`NAME_MAX` for ext4 partitions). The length is not checked
+# by this regex and it must be checked with `TERMUX__NAME_MAX`, as
+# `bash` `=~` regex conditional does not support lookaround.
+#
+# Unlike Android, the Termux app package name max length is not `255`
+# as its limited by `TERMUX__APPS_DIR___MAX_LEN` and `TERMUX__ROOTFS_DIR___MAX_LEN`.
+#
+# - https://developer.android.com/build/configure-app-module#set-application-id
+# - https://cs.android.com/android/platform/superproject/+/android-14.0.0_r1:frameworks/base/core/java/android/content/pm/parsing/ApkLiteParseUtils.java;l=669-677
+# - https://cs.android.com/android/platform/superproject/+/android-14.0.0_r1:frameworks/base/core/java/android/content/pm/parsing/FrameworkParsingPackageUtils.java;l=63-103
+# - https://cs.android.com/android/platform/superproject/+/android-14.0.0_r1:frameworks/base/core/java/android/os/FileUtils.java;l=954-994
+# - https://cs.android.com/android/platform/superproject/+/android-14.0.0_r1:frameworks/base/core/java/android/content/pm/PackageManager.java;l=2147-2155
+##
+TERMUX_REGEX__APP_PACKAGE_NAME="^[a-zA-Z][a-zA-Z0-9_]*(\.[a-zA-Z][a-zA-Z0-9_]*)+$"
+
+##
+# Regex to match an android app data path.
+#
+# The supported formats are:
+# - `/data/data/<package_name>` (for primary user `0`) if app is to be
+#   installed on internal sd.
+# - `/data/user/<user_id>/<package_name>` (for all users) if app is to
+#   be installed on internal sd.
+# `/mnt/expand/<volume_uuid>/user/<user_id>/<package_name>` if app is
+#  to be installed on a removable/portable volume/sd card being used as
+#  adoptable storage.
+#
+# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
+##
+TERMUX_REGEX__APP_DATA_DIR_PATH='^(((/data/data)|(/data/user/[0-9]+)|(/mnt/expand/[^/]+/user/[0-9]+))/[^/]+)$'
+
+
+
+
+
+###
+# Variables for the Termux build tools.
+###
+
+##
+# The path to the `termux-packages` repo root directory.
+##
+TERMUX_PKGS__BUILD__REPO_ROOT_DIR="${TERMUX_PKGS__BUILD__REPO_ROOT_DIR:-}"
+
+__termux_build_props__set_termux_builder__repo_root_dir() {
+
+    local relative_path="${1:-}"
+    local return_value=0
+    if [[ -z "${TERMUX_PKGS__BUILD__REPO_ROOT_DIR:-}" ]]; then
+        if [[ "$(readlink --help 2>&1 || true)" =~ [\ ]-f[,\ ] ]]; then
+            TERMUX_PKGS__BUILD__REPO_ROOT_DIR="$(file="$(readlink -f -- "${BASH_SOURCE[0]}")" && \
+                parent="$(dirname -- "$file")" && \
+                readlink -f -- "${parent}${relative_path}")" || return_value=$?
+        else
+            TERMUX_PKGS__BUILD__REPO_ROOT_DIR="$(pwd)" || return_value=$? # macOS `< 12.3` compatibility.
+        fi
+    fi
+    if [ $return_value -ne 0 ] || [[ ! "$TERMUX_PKGS__BUILD__REPO_ROOT_DIR" =~ ^(/[a-zA-Z0-9+,.=_-]+)+$ ]] || \
+            [[ ! -f "$TERMUX_PKGS__BUILD__REPO_ROOT_DIR/scripts/properties.sh" ]]; then
+        echo "The TERMUX_PKGS__BUILD__REPO_ROOT_DIR '$TERMUX_PKGS__BUILD__REPO_ROOT_DIR' not found or is not valid." 1>&2
+        return 1;
+    fi
+
+}
+__termux_build_props__set_termux_builder__repo_root_dir "/.." || exit $?
+unset __termux_build_props__set_termux_builder__repo_root_dir
+TERMUX_SCRIPTDIR="${TERMUX_SCRIPTDIR:-TERMUX_PKGS__BUILD__REPO_ROOT_DIR}" # Deprecated alternative variable for `TERMUX_PKGS__BUILD__REPO_ROOT_DIR`
+
+
+
+TERMUX_SDK_REVISION=9123335
+TERMUX_ANDROID_BUILD_TOOLS_VERSION=33.0.1
+# when changing the above:
+# change TERMUX_PKG_VERSION (and remove TERMUX_PKG_REVISION if necessary) in:
+#   apksigner, d8
+# and trigger rebuild of them
+: "${TERMUX_NDK_VERSION_NUM:="29"}"
+: "${TERMUX_NDK_REVISION:=""}"
+TERMUX_NDK_VERSION="${TERMUX_NDK_VERSION_NUM}${TERMUX_NDK_REVISION}"
+# when changing the above:
+# update version and hashsum in packages
+#   libandroid-stub, libc++, ndk-multilib, ndk-sysroot, vulkan-loader-android
+# and update SHA256 sums in scripts/setup-android-sdk.sh
+# check all packages build and run correctly and bump if needed
+
+: "${TERMUX_HOST_LLVM_MAJOR_VERSION:="20"}"
+: "${TERMUX_HOST_LLVM_BASE_DIR:="/usr/lib/llvm-${TERMUX_HOST_LLVM_MAJOR_VERSION}"}"
+
+: "${TERMUX_JAVA_HOME:=/usr/lib/jvm/java-17-openjdk-amd64}"
+export JAVA_HOME="${TERMUX_JAVA_HOME}"
+
+if [[ "${TERMUX_PACKAGES_OFFLINE-false}" == "true" ]]; then
+    export ANDROID_HOME="${TERMUX_PKGS__BUILD__REPO_ROOT_DIR}/build-tools/android-sdk-${TERMUX_SDK_REVISION}"
+    export NDK="${TERMUX_PKGS__BUILD__REPO_ROOT_DIR}/build-tools/android-ndk-r${TERMUX_NDK_VERSION}"
+else
+    : "${ANDROID_HOME:="${HOME}/lib/android-sdk-$TERMUX_SDK_REVISION"}"
+    : "${NDK:="${HOME}/lib/android-ndk-r${TERMUX_NDK_VERSION}"}"
+fi
+
+
+
+###
+# Variables for the Termux apps and packages for which to compile packages.
+#
+# Variables defined in this file need to be in sync with `termux-app`
+# (`TermuxConstants` and `TermuxCoreConstants`), termux site and `termux-exec`.
+# - https://github.com/termux/termux-app/blob/master/termux-shared/src/main/java/com/termux/shared/termux/TermuxConstants.java
+# - https://github.com/termux/termux-app/blob/master/termux-shared/src/main/java/com/termux/shared/termux/core/TermuxCoreConstants.java
+#
+# Following is a list of `TERMUX_` variables that are safe to modify when forking.
+# **DO NOT MODIFY ANY OTHER VARIABLE UNLESS YOU KNOW WHAT YOU ARE DOING.**
+#
+# - `TERMUX__NAME`, `TERMUX__LNAME` and `TERMUX__UNAME`.
+# - `TERMUX__REPOS_HOST_ORG_NAME` and `TERMUX__REPOS_HOST_ORG_URL`.
+# - `TERMUX_*__REPO_NAME` and `TERMUX_*__REPO_URL`.
+# - `TERMUX_APP__PACKAGE_NAME`.
+# - `TERMUX_APP__DATA_DIR`.
+# - `TERMUX__PROJECT_SUBDIR`.
+# - `TERMUX__ROOTFS_SUBDIR`.
+# - `TERMUX__ROOTFS` and alternates.
+# - `TERMUX__PREFIX` and alternates.
+# - `TERMUX_ANDROID_HOME` and alternates.
+# - `TERMUX_APP__NAME` and `TERMUX_APP__LNAME`.
+# - `TERMUX_APP__APP_IDENTIFIER`.
+# - `TERMUX_APP__NAMESPACE`.
+# - `TERMUX_APP__SHELL_API__SHELL_API_ACTIVITY__*`.
+# - `TERMUX_APP__SHELL_API__SHELL_API_SERVICE__*`.
+# - `TERMUX_APP__RUN_COMMAND_API__RUN_COMMAND_API_SERVICE__*`.
+# - `TERMUX_APP__DATA_SENDER_API__DATA_SENDER_API_RECEIVER__*`.
+# - `TERMUX_API_APP__PACKAGE_NAME`.
+# - `TERMUX_API_APP__NAME`.
+# - `TERMUX_API_APP__APP_IDENTIFIER`.
+# - `TERMUX_API_APP__NAMESPACE`.
+# - `TERMUX_API_APP__ANDROID_API__ANDROID_API_RECEIVER__*`.
+# - `TERMUX_AM_APP__NAMESPACE`.
+###
+
+##
+# Termux project name.
+#
+# Default value: `Termux`
+##
+TERMUX__NAME="Termux"
+
+##
+# The lower case value for `TERMUX__NAME`.
+#
+# Default value: `termux`
+##
+TERMUX__LNAME="${TERMUX__NAME,,}"
+
+##
+# The upper case value for `TERMUX__NAME`.
+#
+# Default value: `TERMUX`
+##
+TERMUX__UNAME="${TERMUX__NAME^^}"
+
+
+
+##
+# Termux internal project name.
+#
+# This is used internally for paths, filenames, and other internal use
+# cases and must match the `TERMUX__INTERNAL_NAME_REGEX` regex and
+# have max length `TERMUX__INTERNAL_NAME___MAX_LEN`.
+#
+# **This must not be changed unless doing a full fork of Termux where
+# all Termux references are changed instead of just changing the
+# `TERMUX__NAME`, `TERMUX_APP__PACKAGE_NAME` and urls.**
+#
+# Default value: `termux`
+##
+TERMUX__INTERNAL_NAME="termux"
+
+##
+# The regex to validate `TERMUX__INTERNAL_NAME`.
+#
+# The internal name must start with characters in the range
+# `[a-z0-9]`, followed by at least one character in the range
+# `[a-z0-9_-]`, and end with characters in the range `[a-z0-9]`. The
+# min length is `3`. The max length `7` as per
+# `TERMUX__INTERNAL_NAME___MAX_LEN` is not checked by this regex and
+# must be checked separately.
+#
+#
+# Constant value: `^[a-z0-9][a-z0-9_-]+[a-z0-9]$`
+##
+TERMUX__INTERNAL_NAME_REGEX="^[a-z0-9][a-z0-9_-]+[a-z0-9]$"
+
+##
+# The max length for the `TERMUX__INTERNAL_NAME`.
+#
+# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# for why the value `7` is chosen.
+#
+# Constant value: `7`
+##
+TERMUX__INTERNAL_NAME___MAX_LEN=7
+
+
+
+##
+# Termux repositories host organization name.
+#
+# Default value: `termux`
+##
+TERMUX__REPOS_HOST_ORG_NAME="termux"
+
+##
+# Termux repositories host organization url.
+#
+# Default value: `https://github.com/termux`
+##
+TERMUX__REPOS_HOST_ORG_URL="https://github.com/$TERMUX__REPOS_HOST_ORG_NAME"
+
+
+
+##
+# Termux app package name used for `TERMUX_APP__DATA_DIR` and
+# `TERMUX_APP__*_(ACTIVITY|RECEIVER|SERVICE)__*` variables.
+#
+# Ideally package name should be `<= 21` characters and max `33`
+# characters. If package name has not yet been chosen, then it would
+# be best to keep it to `<= 10` characters. Check
+# https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# for why.
+#
+# **See Also:**
+# - `TERMUX_APP__NAMESPACE`.
+# - https://developer.android.com/build/configure-app-module#set-application-id
+# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
+#
+# Default value: `com.termux`
+##
+TERMUX_APP__PACKAGE_NAME="com.termux"
+TERMUX_APP_PACKAGE="$TERMUX_APP__PACKAGE_NAME" # Deprecated alternative variable for `TERMUX_APP__PACKAGE_NAME`
+
+__termux_build_props__add_variables_validator_actions "TERMUX_APP__PACKAGE_NAME" "app_package_name"
+
+##
+# Termux app data directory path that is expected to be assigned by
+# Android to the Termux app with `TERMUX_APP__PACKAGE_NAME` for all
+# its app data, that will contain the Termux project directory
+# (`TERMUX__PROJECT_DIR`), and optionally the Termux rootfs directory
+# (`TERMUX__ROOTFS`).
+#
+# The path must match `TERMUX_REGEX__APP_DATA_DIR_PATH`.
+#
+# The directory set will be deleted by `clean.sh` if `TERMUX__PREFIX`
+# is under `TERMUX_APP__DATA_DIR` and not running on-device, so make
+# sure a safe path is set if running `clean.sh` in Termux docker or
+# host OS build environment.
+#
+# Default value: `/data/data/com.termux`
+##
+TERMUX_APP__DATA_DIR="/data/data/$TERMUX_APP__PACKAGE_NAME"
+__termux_build_props__add_variables_validator_actions "TERMUX_APP__DATA_DIR" "safe_absolute_path"
+
+##
+# The max length for the `TERMUX_APP__DATA_DIR` including the null '\0'
+# terminator.
+#
+# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# for why the value `69` is chosen.
+#
+# Constant value: `69`
+##
+TERMUX_APP__DATA_DIR___MAX_LEN=69
+
+
+
+
+
+
+#!/bin/bash
+set -eu
+
+# Root Check
+if [[ "$(id -u)" == "0" ]]; then
+	echo "Error: Cannot run 'pkg' command as root"
+	exit 1
+fi
+
+# Setup TERMUX_APP_PACKAGE_MANAGER
+# shellcheck source=/dev/null
+source "@TERMUX_PREFIX@/bin/termux-setup-package-manager" || exit 1
+
+MIRROR_BASE_DIR="@TERMUX_PREFIX@/etc/termux/mirrors"
+
+show_help() {
+	local cache_size
+	local cache_dir=""
+	if [ "$TERMUX_APP_PACKAGE_MANAGER" = "apt" ]; then
+		cache_dir="@TERMUX_CACHE_DIR@/apt/archives"
+	elif [ "$TERMUX_APP_PACKAGE_MANAGER" = "pacman" ]; then
+		cache_dir="@TERMUX_PREFIX@/var/cache/pacman/pkg"
+	fi
+	cache_size="$(du -sh "$cache_dir" 2>/dev/null | cut -f1)"
+
+	echo 'Usage: pkg [--check-mirror] command [arguments]'
+	echo
+	echo "A tool for managing $TERMUX_APP_PACKAGE_MANAGER packages."
+	echo '  --check-mirror forces a re-check of availability of mirrors'
+	echo
+	echo 'Commands:'
+	echo
+	echo "  autoclean            - Remove all outdated packages from $TERMUX_APP_PACKAGE_MANAGER"
+	echo '                         cache.'
+	echo
+	echo "  clean                - Remove all packages from $TERMUX_APP_PACKAGE_MANAGER cache."
+	[ -n "$cache_size" ] &&
+	echo "                         Using $cache_size now."
+	echo
+	echo '  files <packages>     - Show all files installed by packages.'
+	echo
+	echo '  install <packages>   - Install specified packages.'
+	echo
+	echo '  list-all             - List all packages available in repositories.'
+	echo
+	echo '  list-installed       - List installed packages.'
+	echo
+	echo '  reinstall <packages> - Reinstall specified installed packages at the'
+	echo '                         latest version.'
+	echo
+	echo '  search <query>       - Search package by query, for example by name or'
+	echo '                         description part.'
+	echo
+	echo '  show <packages>      - Show basic metadata, such as dependencies.'
+	echo
+	echo '  uninstall <packages> - Uninstall specified packages. Configuration files'
+	echo '                         will be left intact.'
+	echo
+	echo '  upgrade              - Upgrade all installed packages to the latest'
+	echo '                         version.'
+	echo
+	echo "  update               - Update $TERMUX_APP_PACKAGE_MANAGER databases from configured"
+	echo '                         repositories.'
+	echo
+	exit 1
+}
+
+check_mirror() {
+	local mirror="${1%/}"
+	local timeout="${2-5}"
+
+	timeout "$((timeout + 1))" curl \
+		--head \
+		--fail \
+		--connect-timeout "$timeout" \
+		--location \
+		--user-agent "Termux-PKG/2.0 mirror-checker (termux-tools @PACKAGE_VERSION@) Termux (@TERMUX_APP_PACKAGE@; install-prefix:@TERMUX_PREFIX@)" \
+		"$mirror/dists/stable/Release" >/dev/null 2>&1
+}
+
+check_command() {
+	local command="$1"
+
+	local errors
+	if ! errors="$("$@" 2>&1 1>/dev/null)"; then
+		echo "$errors" 1>&2
+		echo "Failed to run the '$command' command." 1>&2
+		if [[ "$errors" == *"CANNOT LINK EXECUTABLE"* ]]; then
+			echo -n "To fix the '$command' command, manually upgrade all packages by running: " 1>&2
+			case "$TERMUX_APP_PACKAGE_MANAGER" in
+				apt) echo "\`apt update && apt full-upgrade\`" 1>&2;;
+				pacman) echo "\`pacman -Syu\`" 1>&2;;
+			esac
+		fi
+		exit 1
+	fi
+}
+
+last_modified() {
+	local mtime
+	local now
+
+	mtime=$(date -r "$1" '+%s')
+	now=$(date '+%s')
+	echo $((now - mtime))
+}
+
+sed_escape_replacement() {
+	local r="$1"
+	r="${r//[\\]/\\\\}" # Escape `\`.
+	r="${r//[\/]/\\\/}" # Escape `/`.
+	r="${r//[&]/\\\&}"  # Escape `&`.
+	echo "$r"
+}
+
+has_repo() {
+	# Check if root-repo or x11-repo are installed
+	repo="$1"
+
+	if [[ -f "@TERMUX_PREFIX@/etc/apt/sources.list.d/$repo.sources" ]]; then
+		echo deb822
+	elif [[ -f "@TERMUX_PREFIX@/etc/apt/sources.list.d/$repo.list" ]]; then
+		echo legacy
+	fi
+}
+
+unset_mirror_variables() {
+	unset MAIN
+	unset X11
+	unset ROOT
+	unset WEIGHT
+}
+
+get_mirror_url() {
+	local -r _mirror="$1"
+	local -r _has_repo_x11="$2"
+	local -r _has_repo_root="$3"
+
+	unset_mirror_variables
+	# shellcheck source=/dev/null
+	source "$_mirror"
+
+	if [[ -z "${MAIN:-}" ]]; then
+		echo "Warn: Ignoring mirror '$_mirror' without main channel url" >&2
+		return 0
+	elif [[ ! "${MAIN:-}" =~ ^https?://[^[:space:]]+$ ]]; then
+		echo "Warn: Ignoring mirror '$_mirror' with invalid main channel url '${MAIN:-}'" >&2
+		return 0
+	fi
+
+	if [[ "$_has_repo_x11" == "true" ]]; then
+		if [[ -z "${X11:-}" ]]; then
+			echo "Warn: Ignoring mirror '$_mirror' without x11 channel url" >&2
+			return 0
+		elif [[ ! "${X11:-}" =~ ^https?://[^[:space:]]+$ ]]; then
+			echo "Warn: Ignoring mirror '$_mirror' with invalid x11 channel url '${X11:-}'" >&2
+			return 0
+		fi
+	fi
+
+	if [[ "$_has_repo_root" == "true" ]]; then
+		if [[ -z "${ROOT:-}" ]]; then
+			echo "Warn: Ignoring mirror '$_mirror' without root channel url" >&2
+			return 0
+		elif [[ ! "${ROOT:-}" =~ ^https?://[^[:space:]]+$ ]]; then
+			echo "Warn: Ignoring mirror '$_mirror' with invalid root channel url '${ROOT:-}'" >&2
+			return 0
+		fi
+	fi
+
+	if [[ ! "${WEIGHT:-}" =~ ^[0-9]+$ ]]; then
+		echo "Warn: Ignoring mirror '$_mirror' with invalid weight '${WEIGHT:-}'" >&2
+		return 0
+	fi
+
+	echo "$MAIN"
+}
+
+get_mirror_weight() {
+	unset_mirror_variables
+	source "$1"
+	echo "$WEIGHT"
+}
+
+select_mirror() {
+	local current_mirror
+	if [ -f "@TERMUX_PREFIX@/etc/apt/sources.list.d/main.sources" ]; then
+		current_mirror=$(grep -oE 'https?://[^ ]+' <(grep -m 1 -E '^[[:space:]]*URIs:[[:space:]]+' "@TERMUX_PREFIX@/etc/apt/sources.list.d/main.sources") || :)
+	elif [ -f "@TERMUX_PREFIX@/etc/apt/sources.list" ]; then
+		current_mirror=$(grep -oE 'https?://[^ ]+' <(grep -m 1 -E '^[[:space:]]*deb[[:space:]]+' "@TERMUX_PREFIX@/etc/apt/sources.list") || :)
+	fi
+
+	# Do not update mirror if $TERMUX_PKG_NO_MIRROR_SELECT was set.
+	if [ -n "${TERMUX_PKG_NO_MIRROR_SELECT-}" ] && [ -n "$current_mirror" ]; then
+		return
+	fi
+
+	local default_repo="${MIRROR_BASE_DIR}/default"
+
+	if [ -d "@TERMUX_PREFIX@/etc/termux/chosen_mirrors" ]; then
+		# Mirror group selected
+		mirrors=($(find "@TERMUX_PREFIX@/etc/termux/chosen_mirrors/" -type f ! -name "*\.dpkg-old" ! -name "*\.dpkg-new" ! -name "*~"))
+	elif [ -f "@TERMUX_PREFIX@/etc/termux/chosen_mirrors" ]; then
+		# Single mirror selected
+		mirrors=("$(realpath "@TERMUX_PREFIX@/etc/termux/chosen_mirrors")")
+	elif [ -L "@TERMUX_PREFIX@/etc/termux/chosen_mirrors" ]; then
+		# Broken symlink, use all mirrors
+		mirrors=("${MIRROR_BASE_DIR}/default")
+		mirrors+=($(find "${MIRROR_BASE_DIR}"/{asia,chinese_mainland,europe,north_america,oceania,russia}/ -type f ! -name "*\.dpkg-old" ! -name "*\.dpkg-new" ! -name "*~"))
+	else
+		echo "No mirror or mirror group selected. You might want to select one by running 'termux-change-repo'"
+		mirrors=("${MIRROR_BASE_DIR}/default")
+		mirrors+=($(find ${MIRROR_BASE_DIR}/{asia,chinese_mainland,europe,north_america,oceania,russia}/ -type f ! -name "*\.dpkg-old" ! -name "*\.dpkg-new" ! -name "*~"))
+	fi
+
+	# Ensure `curl` can execute, otherwise all mirror checks will fail with `bad`.
+	check_command curl --version
+
+	# Mirrors are rotated if 6 hours timeout has been passed or mirror is no longer accessible.
+	local pkgcache="@TERMUX_CACHE_DIR@/apt/pkgcache.bin"
+	if [ -e "$pkgcache" ] && (( $(last_modified "$pkgcache") <= 6 * 3600 )) && [ "$force_check_mirror" = "false" ]; then
+		if [ -n "$current_mirror" ]; then
+			echo "Checking availability of current mirror:"
+			echo -n "[*] $current_mirror: "
+			if check_mirror "$current_mirror"; then
+				echo "ok"
+				return
+			else
+				echo "bad"
+			fi
+		fi
+	fi
+
+	# Test mirror availability, remove unaccessible mirrors from list.
+	echo "Testing the available mirrors:"
+	local parallel_jobs_max_count=10
+
+	if [[ ! "$parallel_jobs_max_count" =~ ^[0-9]+$ ]] || \
+		[[ "$parallel_jobs_max_count" -lt 1 ]] || \
+			[[ "$parallel_jobs_max_count" -gt 1000 ]]; then
+		parallel_jobs_max_count=1
+	fi
+
+	declare -a parallel_jobs_mirrors=()
+	declare -a parallel_jobs_weights=()
+	declare -a parallel_jobs_urls=()
+	declare -a parallel_jobs_numbers=()
+	declare -a parallel_jobs_pids=()
+	declare -a parallel_jobs_return_values=()
+
+	local i j mirror url job_number job_pid return_value
+	local total_mirrors=${#mirrors[@]}
+	local parallel_jobs_current_count=1
+
+	has_repo_x11="$(has_repo x11)"
+	has_repo_root="$(has_repo root)"
+
+	set +e
+	i=0
+	for mirror in "${!mirrors[@]}"; do
+		url="$(get_mirror_url "${mirrors[$mirror]}" "$has_repo_x11" "$has_repo_root")"
+		if [ -z "$url" ]; then
+			unset "mirrors[$mirror]"
+			continue
+		fi
+
+		job_number=$parallel_jobs_current_count
+		parallel_jobs_current_count=$((parallel_jobs_current_count + 1))
+
+		# Start mirror check in background
+		check_mirror "$url" &
+		job_pid=$!
+
+		parallel_jobs_mirrors=("${parallel_jobs_mirrors[@]}" "$mirror")
+		parallel_jobs_weights=("${parallel_jobs_weights[@]}" "$(get_mirror_weight ${mirrors[$mirror]})")
+		parallel_jobs_urls=("${parallel_jobs_urls[@]}" "$url")
+		parallel_jobs_numbers=("${parallel_jobs_numbers[@]}" "$job_number")
+		parallel_jobs_pids=("${parallel_jobs_pids[@]}" "$job_pid")
+
+		# If current job count has reached max value or is the last mirror, wait for already started jobs to finish
+		if [ "$job_number" -ge $parallel_jobs_max_count ] || \
+			[ "$i" -ge $((total_mirrors - 1)) ]; then
+
+			j=0
+			# For pids of all jobs
+			for job_pid in "${parallel_jobs_pids[@]}"; do
+				# Wait for job with matching pid to return
+				# echo "waiting for check_mirror job ${parallel_jobs_numbers[j]} for mirror \"${parallel_jobs_urls[j]}\" with pid ${parallel_jobs_pids[j]}"
+				wait "$job_pid"
+				return_value=$?
+
+				parallel_jobs_return_values=("${parallel_jobs_return_values[@]}" "$return_value")
+				j=$((j + 1))
+			done
+
+			j=0
+			# For return_values of all jobs
+			for return_value in "${parallel_jobs_return_values[@]}"; do
+				echo -n "[*] (${parallel_jobs_weights[j]}) ${parallel_jobs_urls[j]}: "
+				if [ "$return_value" -eq 0 ]; then
+					echo "ok"
+				else
+					echo "bad"
+					# echo "check_mirror job ${parallel_jobs_numbers[j]} for mirror \"${parallel_jobs_urls[j]}\" with pid ${parallel_jobs_pids[j]} failed with exit code $return_value"
+					unset "mirrors[${parallel_jobs_mirrors[j]}]"
+				fi
+
+				j=$((j + 1))
+			done
+
+			# Reset job related variables
+			parallel_jobs_current_count=1
+			parallel_jobs_mirrors=()
+			parallel_jobs_weights=()
+			parallel_jobs_urls=()
+			parallel_jobs_numbers=()
+			parallel_jobs_pids=()
+			parallel_jobs_return_values=()
+		fi
+
+		i=$((i + 1))
+	done
+	set -e
+
+	# Build weighted array of valid mirrors
+	declare -a weighted_mirrors
+	local total_mirror_weight=0
+	local weight
+	for mirror in "${!mirrors[@]}"; do
+		# Check if mirror was unset in parallel check
+		if [ -z "${mirrors[$mirror]-}" ]; then
+			continue
+		fi
+		weight="$(get_mirror_weight ${mirrors[$mirror]})"
+		total_mirror_weight=$((total_mirror_weight + weight))
+		j=0
+		while [ "$j" -lt "$weight" ]; do
+			weighted_mirrors+=(${mirrors[$mirror]})
+			j=$((j + 1))
+		done
+	done
+
+	# Select random mirror
+	local selected_mirror=""
+	if ((total_mirror_weight > 0)); then
+		local random_weight
+		random_weight=$(( (RANDOM % total_mirror_weight + 1) - 1 ))
+		echo "Picking mirror: (${random_weight}) ${weighted_mirrors[${random_weight}]}"
+		selected_mirror="${weighted_mirrors[${random_weight}]}"
+	fi
+
+	if [ -z "$selected_mirror" ]; then
+		# Should not happen unless there is some issue with
+		# the script, or the mirror files
+		echo "Error: None of the mirrors are accessible"
+		exit 1
+	fi
+
+	(
+		unset_mirror_variables
+		# shellcheck source=/dev/null
+		source "$selected_mirror"
+
+		case "$(has_repo main)" in
+			'deb822')
+				sed -i -e "s|URIs:.*|$(sed_escape_replacement "URIs: $MAIN")|" \
+				"@TERMUX_PREFIX@/etc/apt/sources.list.d/main.sources"
+			;;
+			# There should always be a main repo, so fallback to
+			# creating sources.list if the `main.sources` file is missing
+			*) echo "deb $MAIN stable main" > "@TERMUX_PREFIX@/etc/apt/sources.list";;
+		esac
+
+		case "${has_repo_x11:-}" in
+			'deb822')
+				sed -i -e "s|URIs:.*|$(sed_escape_replacement "URIs: $X11")|" \
+				"@TERMUX_PREFIX@/etc/apt/sources.list.d/x11.sources"
+			;;
+			'legacy') echo "deb $X11 x11 main" > "@TERMUX_PREFIX@/etc/apt/sources.list.d/x11.list";;
+		esac
+
+		case "${has_repo_root:-}" in
+			'deb822')
+				sed -i -e "s|URIs:.*|$(sed_escape_replacement "URIs: $ROOT")|" \
+				"@TERMUX_PREFIX@/etc/apt/sources.list.d/root.sources"
+			;;
+			'legacy') echo "deb $ROOT root stable" > "@TERMUX_PREFIX@/etc/apt/sources.list.d/root.list";;
+		esac
+	)
+}
+
+update_apt_cache() {
+	local current_host
+	if [ -f "@TERMUX_PREFIX@/etc/apt/sources.list.d/main.sources" ]; then
+		current_host=$(head -n 1 <(sed -nE 's|^\s*URIs:\s+https?://(.+)$|\1|p' "@TERMUX_PREFIX@/etc/apt/sources.list.d/main.sources") || :)
+	elif [ -f "@TERMUX_PREFIX@/etc/apt/sources.list" ]; then
+		current_host=$(head -n 1 <(sed -nE 's|^\s*deb\s+https?://(.+)\s+stable\s+main$|\1|p' "@TERMUX_PREFIX@/etc/apt/sources.list") || :)
+	fi
+
+	if [ -z "$current_host" ]; then
+		# No primary repositories configured?
+		apt update
+		return
+	fi
+
+	local metadata_file
+	metadata_file=$(
+		list_prefix=$(echo "$current_host" | sed 's|/|_|g')
+		arch=$(dpkg --print-architecture)
+		echo "@TERMUX_PREFIX@/var/lib/apt/lists/${list_prefix}_dists_stable_main_binary-${arch}_Packages" | sed 's|__|_|g'
+	)
+
+	if [ ! -e "@TERMUX_CACHE_DIR@/apt/pkgcache.bin" ] || [ ! -e "$metadata_file" ]; then
+		apt update
+		return
+	fi
+
+	local cache_modified
+	cache_modified=$(last_modified "@TERMUX_CACHE_DIR@/apt/pkgcache.bin")
+
+	local sources_modified
+	if [ -f "@TERMUX_PREFIX@/etc/apt/sources.list.d/main.sources" ]; then
+		sources_modified=$(last_modified "@TERMUX_PREFIX@/etc/apt/sources.list.d/main.sources")
+	elif [ -f "@TERMUX_PREFIX@/etc/apt/sources.list" ]; then
+		sources_modified=$(last_modified "@TERMUX_PREFIX@/etc/apt/sources.list")
+	fi
+
+	if (( sources_modified <= cache_modified )) || (( cache_modified > 1200 )); then
+		apt update
+	fi
+}
+
+force_check_mirror=false
+if [ "${1-}" = "--check-mirror" ]; then
+	force_check_mirror=true
+	shift 1
+fi
+
+if [[ $# = 0 || $(echo "$1" | grep "^h") ]]; then
+	show_help
+fi
+
+CMD="$1"
+shift 1
+ERROR=false
+
+case "$TERMUX_APP_PACKAGE_MANAGER" in
+	apt)
+		case "$CMD" in
+			f*) dpkg -L "$@";;
+			sh*|inf*) apt show "$@";;
+			add|i*) select_mirror; update_apt_cache; apt install "$@";;
+			autoc*) apt autoclean;;
+			cl*) apt clean;;
+			list-a*) apt list "$@";;
+			list-i*) apt list --installed "$@";;
+			rei*) apt install --reinstall "$@";;
+			se*) select_mirror; update_apt_cache; apt search "$@";;
+			un*|rem*|rm|del*) apt remove "$@";;
+			upd*) select_mirror; apt update;;
+			up|upg*) select_mirror; apt update; apt full-upgrade "$@";;
+			*) ERROR=true;;
+		esac;;
+	pacman)
+		case "$CMD" in
+			f*) pacman -Ql "$@";;
+			sh*|inf*) pacman -Qi "$@";;
+			add|i*) pacman -Sy --needed "$@";;
+			autoc*) pacman -Sc;;
+			cl*) pacman -Scc;;
+			list-a*) pacman -Sl "$@";;
+			list-i*) pacman -Q "$@";;
+			rei*) pacman -S "$@";;
+			se*) pacman -Sys "$@";;
+			un*|rem*|rm|del*) pacman -Rcns "$@";;
+			upd*) pacman -Sy "$@";;
+			up|upg*) pacman -Syu "$@";;
+			*) ERROR=true;;
+		esac;;
+esac
+
+if $ERROR; then
+	echo "Unknown command: '$CMD' (run 'pkg help' for usage information)"; exit 1
+fi
+
+

@@ -1,0 +1,129 @@
+#!/bin/bash
+# T.I.E.U.P - Termux API Smart Installer & Bridge
+# Context: INSTALL_DEBUG / Nethunter Bridging
+# Author: Operator 0x1 (via T.I.E.U.P)
+
+# --- 1. HARDENING & SAFETY ---
+set -euo pipefail
+IFS=$'\n\t'
+
+# Trap for cleanup on exit or error
+trap 'echo -e "\n[!] Script interrupted or failed. Exiting safely."; exit 1' INT TERM ERR
+
+# --- 2. DYNAMIC CONFIGURATION ---
+echo -e "\n[+] T.I.E.U.P Smart Installer Initialized."
+
+# Detect Environment
+IS_TERMUX=false
+if [[ "$OSTYPE" == "linux-android" ]] && [[ -d "/data/data/com.termux" ]]; then
+    IS_TERMUX=true
+    DEFAULT_ENV="Termux"
+else
+    DEFAULT_ENV="Nethunter/Linux"
+fi
+
+# Interactive Prompts
+read -p "[?] Detected Environment: $DEFAULT_ENV. Proceed with install logic? [Y/n]: " -r CONFIRM
+CONFIRM=${CONFIRM:-Y}
+if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
+    echo "[-] Aborted by Operator."
+    exit 0
+fi
+
+read -p "[?] Enter package name to install [default: termux-api]: " -r PKG_NAME
+PKG_NAME=${PKG_NAME:-termux-api}
+
+# --- 3. INSTALLATION LOGIC ---
+
+if [ "$IS_TERMUX" = true ]; then
+    echo -e "\n[+] Environment: Termux Native."
+    echo "[*] Checking for apt..."
+    if ! command -v apt &> /dev/null; then
+        echo "[!] Critical: 'apt' not found. Is this a standard Termux install?"
+        exit 1
+    fi
+
+    echo "[*] Updating repositories..."
+    apt update -y
+
+    echo "[*] Installing $PKG_NAME..."
+    apt install "$PKG_NAME" -y
+
+    echo "[+] Installation complete."
+    echo "[!] REMINDER: Ensure the 'Termux:API' app is installed from F-Droid/Play Store."
+
+else
+    # NETHUNTER / CHROOT LOGIC
+    echo -e "\n[+] Environment: Nethunter/Chroot detected."
+    echo "[!] WARNING: 'termux-api' cannot be installed directly via apt in Kali repositories."
+    echo "[*] T.I.E.U.P Strategy: Generating Cross-Environment Bridge."
+    
+    # Define the bridge path
+    read -p "[?] Enter path to save bridge script [default: /usr/local/bin/termux-bridge]: " -r BRIDGE_PATH
+    BRIDGE_PATH=${BRIDGE_PATH:-/usr/local/bin/termux-bridge}
+
+    # Check for write permissions
+    if [ ! -w "$(dirname "$BRIDGE_PATH")" ]; then
+        echo "[!] No write permission for $(dirname "$BRIDGE_PATH"). Run as root/sudo."
+        exit 1
+    fi
+
+    # Generate the wrapper
+    # This wrapper attempts to call the termux binary by escaping the chroot via 'su -c' or direct pathing if mounts allow.
+    # Note: Accessing Termux from Nethunter usually requires root.
+    
+    cat <<EOF > "$BRIDGE_PATH"
+#!/bin/bash
+# T.I.E.U.P Generated Bridge for Termux API
+# Usage: termux-bridge <command> [args]
+
+TERMUX_BIN_PATH="/data/data/com.termux/files/usr/bin"
+
+if [ "\$#" -eq 0 ]; then
+    echo "Usage: \$0 <termux-command>"
+    echo "Example: \$0 termux-battery-status"
+    exit 1
+fi
+
+CMD="\$1"
+shift
+
+# Check if the binary exists in Termux context
+if [ ! -f "\$TERMUX_BIN_PATH/\$CMD" ]; then
+    echo "[!] Error: \$CMD not found in Termux bin path."
+    echo "[!] Ensure 'pkg install termux-api' is run INSIDE Termux app."
+    exit 1
+fi
+
+# Execute via LD_LIBRARY_PATH injection or simple call if mounts are bound
+# Using 'su' to switch context to the Android user is often required if running as root in chroot
+# This is a best-effort bridge.
+echo "[*] Bridging to Termux..."
+export LD_LIBRARY_PATH="/data/data/com.termux/files/usr/lib"
+export PATH="\$PATH:/data/data/com.termux/files/usr/bin"
+
+  /data/data/com.nh-system.arm64v8a/files/home/
+  tieup_data
+
+#
+echo [*] Bridging to Termux... & Nethunter=CMD
+export LD_LIBRARY_PATH="/data/data/com.nh-system.arm64v8a/files/usr/lib"
+export PATH="$PATH:/data/data/com.nh-system.arm64v8a/files/usr/bin"
+
+#
+export PREFIX="/data/data/com.nh-system.arm64v8a/files/usr"
+
+
+"\$TERMUX_BIN_PATH/\$CMD" "\$@"
+EOF
+
+    chmod +x "$BRIDGE_PATH"
+    echo "[+] Bridge script created at: $BRIDGE_PATH"
+    echo "[*] Usage example: $BRIDGE_PATH termux-battery-status"
+    echo "[!] NOTE: This bridge requires that /data is mounted and accessible from your chroot."
+fi
+
+# --- 4. VERIFICATION ---
+echo -e "\n[+] Operation Finished."
+trap - INT TERM ERR
+exit 0
