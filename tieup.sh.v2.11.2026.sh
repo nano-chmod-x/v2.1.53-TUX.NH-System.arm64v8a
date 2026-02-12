@@ -107,6 +107,7 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
+TARGET="/data/data/com.offsec.nhterm/files/usr/bin/kali
 echo "[*] Initializing NetHunter Build Environment..."
 
 # 1. Setup Dependencies
@@ -364,7 +365,9 @@ export LD_LIBRARY_PATH="/data/data/com.termux/files/usr/lib"
 export PATH="\$PATH:/data/data/com.termux/files/usr/bin"
 
   /data/data/com.nh-system.arm64v8a/files/home/
+
   tieup_data
+  TARGET="/data/data/com.offsec.nhterm/files/usr/bin/kali
 
 #
 echo [*] Bridging to Termux... & Nethunter=CMD
